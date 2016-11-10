@@ -37,15 +37,6 @@ namespace XFormsMasterDetail
                     Navigation.PushAsync(new DetailPage { BindingContext = detail });
                     list.SelectedItem = null;
                 }
-                //if (ItemSelected == null)
-                //{
-                //    Navigation.PushAsync(new DetailPage{BindingContext = detail});
-                //    list.SelectedItem = null;
-                //}
-                //else
-                //{
-                //    ItemSelected.Invoke(detail);
-                //}
             };
 
             Content = new ScrollView

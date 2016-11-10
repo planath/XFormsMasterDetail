@@ -34,7 +34,5 @@ namespace XFormsMasterDetail
                 };
             }
         }
-
-        public IEnumerable<Tab> Tabs { get; set; }
     }
 }
