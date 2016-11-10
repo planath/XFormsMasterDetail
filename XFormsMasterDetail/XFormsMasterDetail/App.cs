@@ -13,7 +13,7 @@ namespace XFormsMasterDetail
         {
             if (Device.Idiom == TargetIdiom.Tablet || Device.Idiom == TargetIdiom.Desktop)
             {
-                MainPage = new NavigationPage(new TabletMasterPage());
+                MainPage = new TabletMasterPage();
             }
             else
             {

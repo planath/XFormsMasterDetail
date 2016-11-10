@@ -28,22 +28,30 @@ namespace XFormsMasterDetail
                     return;
 
                 var detail = args.SelectedItem as ServerStatus;
-                if (ItemSelected == null)
-                {
-                    Navigation.PushAsync(new DetailPage{BindingContext = detail});
-                    list.SelectedItem = null;
-                }
-                else
+                if (Device.Idiom == TargetIdiom.Tablet || Device.Idiom == TargetIdiom.Desktop)
                 {
                     ItemSelected.Invoke(detail);
                 }
+                else
+                {
+                    Navigation.PushAsync(new DetailPage { BindingContext = detail });
+                    list.SelectedItem = null;
+                }
+                //if (ItemSelected == null)
+                //{
+                //    Navigation.PushAsync(new DetailPage{BindingContext = detail});
+                //    list.SelectedItem = null;
+                //}
+                //else
+                //{
+                //    ItemSelected.Invoke(detail);
+                //}
             };
 
             Content = new ScrollView
             {
                 Content = list
             };
-            
         }
     }
 }

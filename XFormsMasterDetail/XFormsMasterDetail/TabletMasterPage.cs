@@ -8,8 +8,7 @@ namespace XFormsMasterDetail
     {
         public TabletMasterPage()
         {
-            Title = "Tablet optimized";
-            Master = new MasterPage() {BindingContext = Tab.GetTabs().FirstOrDefault()};
+            Master = new TabPage{BindingContext = Tab.GetTabs(), Title = "Tablet optimized", BackgroundColor = Color.Red};
 
             Detail = new ContentPage
             {
@@ -19,12 +18,13 @@ namespace XFormsMasterDetail
                     HorizontalOptions = LayoutOptions.Center,
                     Children =
                         {
-                          new Label { Text = "Select a Shop", FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) }
+                          new Label { Text = "Eintrag wählen", FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) }
                         }
-                }
+                },
+                BackgroundColor = Color.Blue
             };
 
-            ((MasterPage)Master).ItemSelected = (serverStatus) =>
+            ((TabPage)Master).ItemSelected = (serverStatus) =>
             {
                 Detail = new DetailPage();
                 Detail.BindingContext = serverStatus;
