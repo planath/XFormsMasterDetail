@@ -16,12 +16,26 @@ namespace XFormsMasterDetail
             list.ItemTemplate = new DataTemplate(typeof(CustomImageCell));
             list.ItemSelected += (sender, args) =>
             {
-                if (args.SelectedItem != null)
+                //if (args.SelectedItem != null)
+                //{
+                //    var detailPage = new DetailPage();
+                //    detailPage.BindingContext = args.SelectedItem;
+                //    list.SelectedItem = null;
+                //    Navigation.PushAsync(detailPage);
+                //}
+
+                if (list.SelectedItem == null)
+                    return;
+
+                var detail = args.SelectedItem as ServerStatus;
+                if (ItemSelected == null)
                 {
-                    var detailPage = new DetailPage();
-                    detailPage.BindingContext = args.SelectedItem;
+                    Navigation.PushAsync(new DetailPage{BindingContext = detail});
                     list.SelectedItem = null;
-                    Navigation.PushAsync(detailPage);
+                }
+                else
+                {
+                    ItemSelected.Invoke(detail);
                 }
             };
 
