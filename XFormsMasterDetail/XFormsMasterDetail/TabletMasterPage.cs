@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Xamarin.Forms;
 using XFormsMasterDetail.Model;
+using XFormsMasterDetail.View;
 
 namespace XFormsMasterDetail
 {
@@ -15,7 +16,7 @@ namespace XFormsMasterDetail
             {
                 if (detail != null && detail is ServerStatus)
                 {
-                    Detail = new DetailPage();
+                    Detail = new DetailView();
                     Detail.BindingContext = detail;
                 }
                 else if (detail != null && detail is Setting)

@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using XFormsMasterDetail.Model;
+using XFormsMasterDetail.View;
 
 namespace XFormsMasterDetail
 {
@@ -33,7 +34,7 @@ namespace XFormsMasterDetail
                     var serverDetail = detail as ServerStatus;
                     SelectedRowItem = serverDetail;
                     list.SelectedItem = null;
-                    Navigation.PushAsync(new DetailPage { BindingContext = serverDetail });
+                    Navigation.PushAsync(new DetailView{ BindingContext = serverDetail });
                 }
                 else if (detail is Setting)
                 {

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFormsMasterDetail.View.DetailView">
+  <StackLayout>
+    <Label
+      Text="Detail View"
+      HorizontalOptions="Center"
+      FontSize="Medium"
+      TextColor="Teal"/>
+    <Label
+      Text="{Binding Title}"
+      HorizontalOptions="Center" />
+    <Label
+      Text="{Binding SubTitle}"
+      HorizontalOptions="Center" />
+  </StackLayout>
+
+</ContentPage>
