@@ -6,43 +6,54 @@ namespace XFormsMasterDetail
 {
     class MasterPage : ContentPage
     {
-        public Action<ServerStatus> ItemSelected { get; set; }
+        public Action<object> ItemSelected { get; set; }
+        public IListContnent SelectedRowItem { get; set; }
         public MasterPage()
         {
             this.SetBinding(TitleProperty, "Title");
 
             var list = new ListView();
             list.SetBinding(ListView.ItemsSourceProperty, "List");
-            list.ItemTemplate = new DataTemplate(typeof(CustomImageCell));
+            list.ItemTemplate = new DataTemplate(typeof(BindingTextCell));
             list.ItemSelected += (sender, args) =>
             {
-                //if (args.SelectedItem != null)
-                //{
-                //    var detailPage = new DetailPage();
-                //    detailPage.BindingContext = args.SelectedItem;
-                //    list.SelectedItem = null;
-                //    Navigation.PushAsync(detailPage);
-                //}
-
                 if (list.SelectedItem == null)
                     return;
 
-                var detail = args.SelectedItem as ServerStatus;
+                var detail = args.SelectedItem;
                 if (Device.Idiom == TargetIdiom.Tablet || Device.Idiom == TargetIdiom.Desktop)
                 {
+                    if (detail is IListContnent)
+                        SelectedRowItem = detail as IListContnent;
+
                     ItemSelected.Invoke(detail);
                 }
-                else
+                else if (detail is ServerStatus)
                 {
-                    Navigation.PushAsync(new DetailPage { BindingContext = detail });
+                    var serverDetail = detail as ServerStatus;
+                    SelectedRowItem = serverDetail;
                     list.SelectedItem = null;
+                    Navigation.PushAsync(new DetailPage { BindingContext = serverDetail });
+                }
+                else if (detail is Setting)
+                {
+                    var settingDetail = detail as Setting;
+                    SelectedRowItem = settingDetail;
+                    list.SelectedItem = null;
+                    Navigation.PushAsync(new PlaceholderPage());
                 }
             };
 
-            Content = new ScrollView
-            {
-                Content = list
-            };
+            Content = list;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (Device.Idiom == TargetIdiom.Tablet || Device.Idiom == TargetIdiom.Desktop) { 
+                ItemSelected.Invoke(SelectedRowItem);
+            }
         }
     }
 }

@@ -7,13 +7,11 @@ using Xamarin.Forms;
 
 namespace XFormsMasterDetail
 {
-    class CustomImageCell : TextCell
+    class CustomSettingsCell : TextCell
     {
-        public CustomImageCell()
+        public CustomSettingsCell()
         {
             this.SetBinding(TextProperty, "Title");
-            this.SetBinding(DetailProperty, "IpDns");
-            this.SetBinding(DetailColorProperty, "Color");
         }
     }
 }

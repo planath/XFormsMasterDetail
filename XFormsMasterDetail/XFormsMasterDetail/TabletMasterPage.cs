@@ -8,30 +8,28 @@ namespace XFormsMasterDetail
     {
         public TabletMasterPage()
         {
-            Master = new TabPage{BindingContext = Tab.GetTabs(), Title = "Tablet optimized", BackgroundColor = Color.Red};
+            Master = new TabPage{Title = "Sinalyse"};
+            Detail = new PlaceholderPage();
 
-            Detail = new ContentPage
+            ((TabPage)Master).ItemSelected = (detail) =>
             {
-                Content = new StackLayout
+                if (detail != null && detail is ServerStatus)
                 {
-                    VerticalOptions = LayoutOptions.Center,
-                    HorizontalOptions = LayoutOptions.Center,
-                    Children =
-                        {
-                          new Label { Text = "Eintrag wählen", FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) }
-                        }
-                },
-                BackgroundColor = Color.Blue
-            };
+                    Detail = new DetailPage();
+                    Detail.BindingContext = detail;
+                }
+                else if (detail != null && detail is Setting)
+                {
+                    Detail = new PlaceholderPage();
+                }
+                else
+                {
+                    Detail = new PlaceholderPage();
+                }
 
-            ((TabPage)Master).ItemSelected = (serverStatus) =>
-            {
-                Detail = new DetailPage();
-                Detail.BindingContext = serverStatus;
                 if (Device.OS != TargetPlatform.Windows)
                     IsPresented = false;
             };
-
         }
     }
 }

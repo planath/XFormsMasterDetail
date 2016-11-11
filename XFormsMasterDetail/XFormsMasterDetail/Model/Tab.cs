@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace XFormsMasterDetail.Model
 {
@@ -15,7 +11,7 @@ namespace XFormsMasterDetail.Model
             _index++;
         }
 
-        public Tab(string title, IEnumerable<ServerStatus> list)
+        public Tab(string title, IEnumerable<IListContnent> list)
         {
             Title = title;
             List = list;
@@ -26,19 +22,6 @@ namespace XFormsMasterDetail.Model
         public int Index { get; private set; }
         public int? SelectedRow { get; set; }
         public string Title { get; set; }
-        public IEnumerable<ServerStatus> List { get; set; }
-
-        #region Repository Service
-        public static IEnumerable<Tab> GetTabs()
-        {
-            return new List<Tab>
-            {
-                new Tab("Aktuell", ServerStatus.GetRandomData()),
-                new Tab("History", ServerStatus.GetRandomData()),
-                new Tab("Einstellungen", ServerStatus.GetRandomData())
-            };
-        }
-        #endregion
-
+        public IEnumerable<IListContnent> List { get; set; }
     }
 }
