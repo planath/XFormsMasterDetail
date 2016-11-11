@@ -4,16 +4,55 @@
              x:Class="XFormsMasterDetail.View.DetailView">
   <StackLayout>
     <Label
-      Text="Detail View"
-      HorizontalOptions="Center"
+      Text="{Binding Status}"
+      HorizontalOptions="FillAndExpand"
+      HorizontalTextAlignment="Center"
       FontSize="Medium"
-      TextColor="Teal"/>
+      TextColor="White"
+      BackgroundColor="{Binding Color}"
+      x:Name="TitleLabel"/>
     <Label
-      Text="{Binding Title}"
-      HorizontalOptions="Center" />
-    <Label
-      Text="{Binding SubTitle}"
-      HorizontalOptions="Center" />
+      Text="Statusinformationen zum server {Binding Title}"
+      HorizontalOptions="FillAndExpand"
+      VerticalTextAlignment="Center"
+      HorizontalTextAlignment="Center"
+      HeightRequest="80"/>
+    
+    <TableView
+      RowHeight="50">
+      <TableView.Root>
+        <TableSection Title="Titel">
+          <TextCell Text="{Binding Title}"/>
+        </TableSection>
+        <TableSection Title="Untertitel">
+          <TextCell Text="{Binding SubTitle}"/>
+        </TableSection>
+        <TableSection Title="Regel">
+          <TextCell Text="{Binding Rule}"/>
+        </TableSection>
+        <TableSection Title="Nachricht">
+          <TextCell Text="{Binding Message}"/>
+        </TableSection>
+        <TableSection Title="IP DNS">
+          <TextCell Text="{Binding IpDns}"/>
+        </TableSection>
+        <TableSection Title="Alarmzeit">
+          <TextCell Text="{Binding AlarmTime}"/>
+        </TableSection>
+        <TableSection Title="Status">
+          <TextCell Text="{Binding Status}"/>
+        </TableSection>
+        <TableSection Title="Bestätigungszeit">
+          <TextCell Text="{Binding ConfirmationTime}"/>
+        </TableSection>
+        <TableSection Title="Benutzer">
+          <TextCell Text="{Binding User}"/>
+        </TableSection>
+        <TableSection Title="Kommentar">
+          <TextCell Text="{Binding Comment}"/>
+        </TableSection>
+       </TableView.Root>
+    </TableView>
   </StackLayout>
 
 </ContentPage>

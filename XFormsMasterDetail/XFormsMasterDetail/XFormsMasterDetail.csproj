@@ -39,6 +39,7 @@
     <Compile Include="Cell\BindingTextCell.cs" />
     <Compile Include="Cell\CustomSettingsCell.cs" />
     <Compile Include="DetailPage.cs" />
+    <Compile Include="Helper\ColorExtension.cs" />
     <Compile Include="Helper\Group.cs" />
     <Compile Include="Helper\ListViewExtensions.cs" />
     <Compile Include="Helper\IListContnent.cs" />

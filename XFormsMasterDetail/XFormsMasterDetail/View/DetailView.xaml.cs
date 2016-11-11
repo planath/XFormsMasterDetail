@@ -13,6 +13,7 @@ namespace XFormsMasterDetail.View
         public DetailView()
         {
             InitializeComponent();
+            this.SetBinding(TitleProperty, new Binding("Title"));
         }
     }
 }

@@ -10,11 +10,11 @@ namespace XFormsMasterDetail.Model
         public static IEnumerable<ServerStatus> GetData()
         {
             return new List<ServerStatus>{
-                new ServerStatus(1, "SiNVR Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "andi@qlu.ch", RandomDay().ToString(), "ok" + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar1", Color.Green),
-                new ServerStatus(2, "Stream Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "ruedi@qlu.ch", RandomDay().ToString(), "ok" + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar2", Color.Lime),
-                new ServerStatus(3, "SiNVR Hybrid", "Lorem ipsum tatafa nare be sodum.", "Plüss", "markus@qlu.ch", RandomDay().ToString(), "ok" + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar3", Color.Green),
-                new ServerStatus(4, "MySql Service for multiple internal Databases", "Lorem ipsum tatafa nare be sodum.", "Plüss", "Hinzer@qlu.ch", RandomDay(true).ToString(), "ok" + RandomDay(true).ToString() ,RandomDay().ToString(), "Andreas P.", "Kommentar4", Color.Red),
-                new ServerStatus(5, "VM OPC Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "quala@qlu.ch", RandomDay().ToString(), "ok" + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar5", Color.Yellow)
+                new ServerStatus(1, "SiNVR Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "andi@qlu.ch", RandomDay().ToString(), "Status: ok " + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar1", Color.Green),
+                new ServerStatus(2, "Stream Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "ruedi@qlu.ch", RandomDay().ToString(), "Status: very ok " + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar2", Color.Green),
+                new ServerStatus(3, "SiNVR Hybrid", "Lorem ipsum tatafa nare be sodum.", "Plüss", "markus@qlu.ch", RandomDay().ToString(), "Status: ok " + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar3", Color.Green),
+                new ServerStatus(4, "MySql Service for multiple internal Databases", "Lorem ipsum tatafa nare be sodum.", "Plüss", "Hinzer@qlu.ch", RandomDay(true).ToString(), "Status: not ok " + RandomDay(true).ToString() ,RandomDay().ToString(), "Andreas P.", "Kommentar4", Color.Red),
+                new ServerStatus(5, "VM OPC Server", "Lorem ipsum tatafa nare be sodum.", "Plüss", "quala@qlu.ch", RandomDay().ToString(), "Status: rebooting " + RandomDay(true).ToString() ,RandomDay(true).ToString(), "Andreas P.", "Kommentar5", Color.Purple)
             };
         }
 
