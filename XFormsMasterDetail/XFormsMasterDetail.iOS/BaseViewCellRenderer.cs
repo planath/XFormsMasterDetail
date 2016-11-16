@@ -13,10 +13,10 @@ namespace XFormsMasterDetail.iOS
             var cell = base.GetCell(item, reusableCell, tv);
             if (item is CheckmarkViewCell)
             {
-                if ((item as CheckmarkViewCell).StyleId.Equals("checkmark"))
-                {
-                    cell.Accessory = UIKit.UITableViewCellAccessory.Checkmark;
-                }
+                //if ((item as CheckmarkViewCell).StyleId.Equals("checkmark"))
+                //{
+                //    cell.Accessory = UIKit.UITableViewCellAccessory.Checkmark;
+                //}
             }
             else
             {

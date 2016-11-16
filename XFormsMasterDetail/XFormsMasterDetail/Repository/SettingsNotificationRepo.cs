@@ -8,12 +8,12 @@ namespace XFormsMasterDetail.Repository
         public static IEnumerable<Setting> GetData()
         {
             return new List<Setting>{
-                new Setting("Sinalyse-Ton", "", "none"),
-                new Setting("Server-Ton", "", "none"),
-                new Setting("Login-Ton", "", "none"),
-                new Setting("Status-Ton", "", "checkmark"),
-                new Setting("Benachrichtigungston", "", "none"),
-                new Setting("Daten-Ton", "", "none")
+                new Setting("Sinalyse-Ton"),
+                new Setting("Server-Ton"),
+                new Setting("Login-Ton"),
+                new Setting("Status-Ton", true),
+                new Setting("Benachrichtigungston"),
+                new Setting("Daten-Ton")
             };
         }
     }

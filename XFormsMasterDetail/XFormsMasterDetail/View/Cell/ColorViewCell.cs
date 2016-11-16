@@ -9,7 +9,7 @@ namespace XFormsMasterDetail.View.Cell
         {
             var colorIndicatorBox = new BoxView()
             {
-                WidthRequest = 10,
+                WidthRequest = 8,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
             colorIndicatorBox.SetBinding(BoxView.ColorProperty, new Binding("Color"));

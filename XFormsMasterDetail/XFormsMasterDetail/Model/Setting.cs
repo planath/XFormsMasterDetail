@@ -1,34 +1,57 @@
-﻿using XFormsMasterDetail.Helper;
+﻿using System.ComponentModel;
+using XFormsMasterDetail.Helper;
 
 namespace XFormsMasterDetail.Model
 {
-    public class Setting : IListContnent
+    public class Setting : IListContnent, INotifyPropertyChanged
     {
-        public Setting(string title, string category, string style)
+        private const string _localImageNameForCheckedIcon = "check.png";
+        private string _checkedImage;
+        public Setting(string title, bool check)
         {
             Title = title;
-            Category = category;
-            StyleId = style;
-        }
-        public Setting(string title, string category)
-        {
-            Title = title;
-            Category = category;
-            StyleId = "disclosure";
+            Checked = check;
         }
         public Setting(string title)
         {
             Title = title;
-            StyleId = "disclosure";
         }
         public Setting()
         {
-            StyleId = "none";
         }
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
         public string Title { get; set; }
         public string SubTitle { get; set; }
-        public string StyleId { get; set; }
-        public string Category { get; set; }
+
+        public string CheckedImage
+        {
+            get { return _checkedImage; }
+            set
+            {
+                _checkedImage = value;
+                if(PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("CheckedImage"));
+            }
+        }
+
+        public bool Checked
+        {
+            get
+            {
+                return CheckedImage.Equals(_localImageNameForCheckedIcon);
+            }
+            set
+            {
+                if (value)
+                {
+                    CheckedImage = _localImageNameForCheckedIcon;
+                }
+                else
+                {
+                    CheckedImage = null;
+                }
+            }
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace XFormsMasterDetail
                     var settingDetail = detail as Setting;
                     SelectedRowItem = settingDetail;
                     list.SelectedItem = null;
-                    Navigation.PushAsync(new PlaceholderPage());
+                    Navigation.PushAsync(new SettingsNotificationPage() {BackgroundColor = Color.Gray});
                 }
             };
 

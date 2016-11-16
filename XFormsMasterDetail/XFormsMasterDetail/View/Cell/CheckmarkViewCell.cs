@@ -1,43 +1,31 @@
-﻿
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace XFormsMasterDetail.View.Cell
 {
     public class CheckmarkViewCell : ViewCell
     {
-        public static readonly BindableProperty StyleIdProperty =
-          BindableProperty.Create("StyleId", typeof(string), typeof(CheckmarkViewCell), "");
-
-        public string StyleId
-        {
-            get { return (string)GetValue(StyleIdProperty); }
-            set { SetValue(StyleIdProperty, value); }
-        }
-
         public CheckmarkViewCell()
         {
-            this.SetBinding(StyleIdProperty, "StyleId");
-            
             var titleLabel = new Label()
             {
-                FontSize = 20,
-                FontAttributes = FontAttributes.Bold
+                FontSize = 16,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalTextAlignment = TextAlignment.Center
             };
             titleLabel.SetBinding(Label.TextProperty, new Binding("Title"));
 
-            var subTitleLabel = new Label()
-            {
-                FontSize = 16
-            };
-            subTitleLabel.SetBinding(Label.TextProperty, new Binding("SubTitle"));
-
+            var checkbox = new Image();
+            checkbox.SetBinding(Image.SourceProperty, "CheckedImage");
+            checkbox.WidthRequest = 24;
+            
             View = new StackLayout()
             {
                 Children =
                 {
-                    titleLabel, subTitleLabel
+                    titleLabel, checkbox
                 },
-                Orientation = StackOrientation.Vertical
+                Padding = new Thickness(20, 0, 12, 0),
+                Orientation = StackOrientation.Horizontal
             };
         }
     }

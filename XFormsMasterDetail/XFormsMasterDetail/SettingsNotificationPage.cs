@@ -19,12 +19,17 @@ namespace XFormsMasterDetail
             {
                 foreach (Setting tone in listView.ItemsSource)
                 {
-                    tone.StyleId = "none";
+                    tone.Checked = false;
                 }
-                (args.SelectedItem as Setting).StyleId = "checkmark";
+                (args.SelectedItem as Setting).Checked = true;
             };
 
-            Content = listView;
+            Content = new StackLayout()
+            {
+                Children = {listView},
+                Margin = new Thickness(30)
+            };
+            Content.BackgroundColor = Color.White;
         }
     }
 }

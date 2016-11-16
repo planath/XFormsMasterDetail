@@ -5,7 +5,5 @@ namespace XFormsMasterDetail.Helper
     {
         string Title { get; }
         string SubTitle { get; }
-        string StyleId { get; }
-        // Style used for iOS custom renderer
     }
 }
