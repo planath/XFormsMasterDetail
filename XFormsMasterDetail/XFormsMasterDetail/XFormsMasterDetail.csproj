@@ -36,8 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Cell\BindingTextCell.cs" />
-    <Compile Include="Cell\CustomSettingsCell.cs" />
+    <Compile Include="Repository\SettingsNotificationRepo.cs" />
+    <Compile Include="SettingsNotificationPage.cs" />
+    <Compile Include="View\Cell\BindingTextCell.cs" />
     <Compile Include="DetailPage.cs" />
     <Compile Include="Helper\ColorExtension.cs" />
     <Compile Include="Helper\Group.cs" />
@@ -58,11 +59,10 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\ServerListViewModel.cs" />
+    <Compile Include="View\Cell\CheckmarkViewCell.cs" />
+    <Compile Include="View\Cell\ColorViewCell.cs" />
     <Compile Include="View\DetailView.xaml.cs">
       <DependentUpon>DetailView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingsListView.xaml.cs">
-      <DependentUpon>SettingsListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -85,12 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\DetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="View\SettingsListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

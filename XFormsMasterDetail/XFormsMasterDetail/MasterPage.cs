@@ -1,7 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
+using XFormsMasterDetail.Helper;
 using XFormsMasterDetail.Model;
 using XFormsMasterDetail.View;
+using XFormsMasterDetail.View.Cell;
 
 namespace XFormsMasterDetail
 {
@@ -14,8 +16,9 @@ namespace XFormsMasterDetail
             this.SetBinding(TitleProperty, "Title");
 
             var list = new ListView();
+            list.HasUnevenRows = true;           
             list.SetBinding(ListView.ItemsSourceProperty, "List");
-            list.ItemTemplate = new DataTemplate(typeof(BindingTextCell));
+            list.ItemTemplate = new DataTemplate(typeof(ColorViewCell));
             list.ItemSelected += (sender, args) =>
             {
                 if (list.SelectedItem == null)

@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using XFormsMasterDetail.Helper;
 using XFormsMasterDetail.Model;
+using XFormsMasterDetail.View.Cell;
 
 namespace XFormsMasterDetail
 {

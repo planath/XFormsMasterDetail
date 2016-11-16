@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using XFormsMasterDetail.Helper;
 
 namespace XFormsMasterDetail.Model
 {
@@ -20,15 +18,18 @@ namespace XFormsMasterDetail.Model
             Comment = comment;
             Color = color;
             Title = title;
+            StyleId = "disclosure";
         }
 
         public ServerStatus()
         {
+            StyleId = "none";
         }
 
         public int Id { get; set; }
         public string Title { get; set; }
         public string SubTitle { get { return IpDns; } }
+        public string StyleId { get; set; }
         public string Grouping { get; set; }
         public object Data { get; set; }
         public string Rule { get; set; }

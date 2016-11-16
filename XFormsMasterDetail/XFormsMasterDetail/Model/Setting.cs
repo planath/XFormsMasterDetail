@@ -1,33 +1,34 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using XFormsMasterDetail.Helper;
 
 namespace XFormsMasterDetail.Model
 {
-    class Setting : IListContnent
+    public class Setting : IListContnent
     {
-        private static int _index = 0;
+        public Setting(string title, string category, string style)
+        {
+            Title = title;
+            Category = category;
+            StyleId = style;
+        }
         public Setting(string title, string category)
         {
             Title = title;
             Category = category;
-            Id = _index;
-            _index++;
+            StyleId = "disclosure";
         }
         public Setting(string title)
         {
             Title = title;
-            Id = _index;
-            _index++;
+            StyleId = "disclosure";
         }
         public Setting()
         {
-            Id = _index;
-            _index++;
+            StyleId = "none";
         }
-
-        public int Id { get; set; }
+        
         public string Title { get; set; }
         public string SubTitle { get; set; }
+        public string StyleId { get; set; }
         public string Category { get; set; }
     }
 }

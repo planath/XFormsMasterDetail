@@ -22,7 +22,7 @@ namespace XFormsMasterDetail
                 }
                 else if (detail != null && detail is Setting)
                 {
-                    Detail = new NavigationPage(new PlaceholderPage()) { BarBackgroundColor = new Color().AppMainColor(), BarTextColor = Color.White };
+                    Detail = new NavigationPage(new SettingsNotificationPage()) { BarBackgroundColor = new Color().AppMainColor(), BarTextColor = Color.White };
                 }
                 else
                 {
