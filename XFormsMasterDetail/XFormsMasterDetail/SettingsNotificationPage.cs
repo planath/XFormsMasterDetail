@@ -1,5 +1,6 @@
 ﻿
 using Xamarin.Forms;
+using XFormsMasterDetail.Helper;
 using XFormsMasterDetail.Model;
 using XFormsMasterDetail.Repository;
 using XFormsMasterDetail.View.Cell;
@@ -26,7 +27,7 @@ namespace XFormsMasterDetail
 
             Content = new StackLayout()
             {
-                Children = {listView},
+                Children = {listView, new RoundedBoxView() {Color = Color.Blue, CornerRadius = 20, OutlineColor = Color.Black} },
                 Margin = new Thickness(30)
             };
             Content.BackgroundColor = Color.White;
