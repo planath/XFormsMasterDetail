@@ -6,7 +6,7 @@ using Xamarin.Forms.Platform.iOS;
 using XFormsMasterDetail.Helper;
 using XFormsMasterDetail.iOS;
 
-//[assembly: ExportRenderer(typeof(RoundedBoxView), typeof(RoundedBoxRenderer))]
+[assembly: ExportRenderer(typeof(RoundedBoxView), typeof(RoundedBoxRenderer))]
 
 namespace XFormsMasterDetail.iOS
 {
@@ -16,28 +16,15 @@ namespace XFormsMasterDetail.iOS
         {
         }
 
-        public override void Draw(CGRect rect)
+        protected override void OnElementChanged(ElementChangedEventArgs<BoxView> e)
         {
-            var rbv = Element as RoundedBoxView;
+            base.OnElementChanged(e);
 
-            using (var context = UIGraphics.GetCurrentContext())
+            if (e.OldElement == null)
             {
-                context.SetFillColor(rbv.Color.ToUIColor().CGColor);
-                context.SetStrokeColor(rbv.OutlineColor.ToUIColor().CGColor);
-                context.SetLineWidth(3);
-
-                CGRect rc = this.Bounds.Inset(3, 3);
-                nfloat radius = (nfloat) rbv.CornerRadius;
-
-                nfloat maxRadius = (rc.Height/2 > rc.Width/2) ? rc.Height/2 : rc.Width/2;
-                nfloat minRadius = (radius < maxRadius) ? radius : maxRadius;
-                radius = (minRadius >= 0) ? minRadius : 0;
-                
-                var path = CGPath.FromRoundedRect(rc, radius, radius);
-                context.AddPath(path);
-                context.DrawPath(CGPathDrawingMode.FillStroke);
+                Layer.MasksToBounds = true;
+                Layer.CornerRadius = (float)((RoundedBoxView)this.Element).CornerRadius / 2.0f;
             }
-
         }
     }
 }

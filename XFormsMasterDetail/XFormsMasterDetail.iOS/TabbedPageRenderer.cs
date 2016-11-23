@@ -13,7 +13,6 @@ namespace XFormsMasterDetail.iOS
             base.OnElementChanged(e);
 
             TabBar.TintColor = UIColor.FromRGB(0, 153, 153);
-            //TabBar.BarTintColor = UIColor.FromRGB(108, 232, 165); -> BarBackground
             TabBar.BackgroundColor = UIColor.White;
         }
     }
