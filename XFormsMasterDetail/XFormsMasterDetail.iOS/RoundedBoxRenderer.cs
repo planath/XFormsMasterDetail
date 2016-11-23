@@ -6,7 +6,7 @@ using Xamarin.Forms.Platform.iOS;
 using XFormsMasterDetail.Helper;
 using XFormsMasterDetail.iOS;
 
-[assembly: ExportRenderer(typeof(RoundedBoxView), typeof(RoundedBoxRenderer))]
+//[assembly: ExportRenderer(typeof(RoundedBoxView), typeof(RoundedBoxRenderer))]
 
 namespace XFormsMasterDetail.iOS
 {
